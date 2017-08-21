@@ -10,16 +10,14 @@ bool cmp(int x,int y)
     stringstream ss1;
     ss1<<y;
     ss1>>b;
-    for (int i=0; i<min(a.size(),b.size()); i++)
+    for (int i=0; i<max(b.size(),a.size()); i++)
     {
-        if (a[i]-'0'>b[i]-'0')
+        if (a[i%a.size()]>b[i%b.size()])
             return 1;
-        if (a[i]-'0'<b[i]-'0')
+        if (a[i%a.size()]<b[i%b.size()])
             return 0;
     }
-    if (a.size()<b.size())
-        return 1;
-    return 0;
+    return 1;
 }
 class TheNumbersLord
 {
